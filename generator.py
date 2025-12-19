@@ -11,7 +11,7 @@ def init_traitement():
     updated_data = []
     noms_vu = set()
 
-    with open("arrets.csv") as csvfile :
+    with open("arrets.csv",encoding="utf-8") as csvfile :
         reader = csv.reader(csvfile, delimiter = ";")
         for row in reader:
             nom = row[1]
