@@ -1,5 +1,15 @@
 import csv
 
+class Arret():
+    def __init__(self, id, name, coo):
+        self.name = name
+        self.coo = coo
+        self.id = id
+
+    def __str__(self):
+        return f"Arrêt numéro {self.id} : {self.name}, coordonnés : {self.coo}"
+        
+
 def parse_coo(coo): #met les coo en float
     temp = coo.split(", ")
     x = float(temp[0])
@@ -48,8 +58,11 @@ def init_traitement():
 
             i.append( (moyenne_x , moyenne_y) )
 
+    c = 0
+    for d in updated_data:
+        updated_data[c] = Arret(c, d[0], d[1])
+        c += 1
 
-                    
     return updated_data
 
 data = init_traitement()
